@@ -157,6 +157,9 @@ public class PrepareCopyTask extends AsyncTask<ArrayList<HybridFileParcelable>, 
     }
 
     private void startService(ArrayList<HybridFileParcelable> sourceFiles, String target, OpenMode openmode) {
+        for (HybridFileParcelable parcelable : sourceFiles) {
+            Log.d("PrepareCopyTask", "startService: COPY: " + parcelable.getPath() + " to " + target);
+        }
         Intent intent = new Intent(context, CopyService.class);
         intent.putParcelableArrayListExtra(CopyService.TAG_COPY_SOURCES, sourceFiles);
         intent.putExtra(CopyService.TAG_COPY_TARGET, target);

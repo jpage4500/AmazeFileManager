@@ -68,6 +68,7 @@ public class GenericCopyUtil {
         BufferedInputStream bufferedInputStream = null;
         BufferedOutputStream bufferedOutputStream = null;
 
+        Log.d("GenericCopyUtil", "startCopy: " + mSourceFile.getPath() + " (" + mSourceFile.getMode() + ") to " + mTargetFile.getPath() + " (" + mTargetFile.getMode() + ")");
         try {
 
             // initializing the input channels based on file types

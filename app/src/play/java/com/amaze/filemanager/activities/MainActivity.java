@@ -1576,9 +1576,13 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                     }
                     for (int i = 0; i < oparrayListList.size(); i++) {
                         ArrayList<HybridFileParcelable> sourceList = oparrayListList.get(i);
+                        String target = oppatheList.get(i);
+                        for (HybridFileParcelable parcelable : sourceList) {
+                            Log.d("MainActivity", "onActivityResult: COPY: " + parcelable.getPath() + " to " + target);
+                        }
                         Intent intent1 = new Intent(con, CopyService.class);
                         intent1.putExtra(CopyService.TAG_COPY_SOURCES, sourceList);
-                        intent1.putExtra(CopyService.TAG_COPY_TARGET, oppatheList.get(i));
+                        intent1.putExtra(CopyService.TAG_COPY_TARGET, target);
                         ServiceWatcherUtil.runService(this, intent1);
                     }
                     break;
